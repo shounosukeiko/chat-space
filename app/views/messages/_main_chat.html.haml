@@ -1,0 +1,38 @@
+.chat-main
+  .main-header
+    .left-box
+      .left-box__group
+        drug
+      %ul.left-box__members
+        Member :
+        %li.member
+          ピエール瀧
+        %li.member
+          沢尻エリカ
+        %li.member
+          田代まさし
+    .right-box
+      .right-box__edit
+        = link_to "#", class:"edit-btn" do
+          %p.right-box__edit-btn
+            Edit
+  
+  .messages
+    .message
+      .upper-box
+        .upper-box__name
+          あああ
+        .upper-box__date 
+          2020/01/23(THU)13:15:00
+      .lower-box
+        .lower-box__text
+          あああ
+  
+  .form
+    %form.create-message
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
+        %label{class: "input-box__image"}
+          =icon('fas', 'image')
+          %inout{type: "file", class: "input-box__image__file"}
+      %input{type: "submit", class: "submit-btn"}
