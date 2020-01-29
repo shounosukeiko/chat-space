@@ -19,7 +19,7 @@
       &__menu{
           display: flex;
         li{
-          i{
+          a{
             margin: 5px;
             color: white;
           }
@@ -34,15 +34,18 @@
       overflow: scroll;
     .group{
       text-decoration: none;
-      color: white;
       padding: 20px;
-      &__group-name{
-        font-size: 15px;
-      }
-      &__group-message{
-        font-size: 11px;
-        margin-top: 5px;
-      }
+      a{
+        color: white;
+        text-decoration: none;
+        .group__name{
+          font-size: 15px;
+        }
+        .group__message{
+          font-size: 11px;
+          margin-top: 5px;
+        }
+      }  
     }
   }
 }
