@@ -2,37 +2,24 @@
   .main-header
     .left-box
       .left-box__group
-        drug
-      %ul.left-box__members
+        = @group.name
+      .left-box__members
         Member :
-        %li.member
-          ピエール瀧
-        %li.member
-          沢尻エリカ
-        %li.member
-          田代まさし
+        = @group.users.pluck(:name).join(", ")
     .right-box
       .right-box__edit
-        = link_to "#", class:"edit-btn" do
-          %p.right-box__edit-btn
-            Edit
-  
+        = link_to "Edit", edit_group_path(params[:group_id]), method: :get 
+
+
   .messages
-    .message
-      .upper-box
-        .upper-box__name
-          あああ
-        .upper-box__date 
-          2020/01/23(THU)13:15:00
-      .lower-box
-        .lower-box__text
-          あああ
-  
+    = render @messages
+
+
   .form
-    %form.create-message
-      .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"}
-          =icon('fas', 'image')
-          %inout{type: "file", class: "input-box__image__file"}
-      %input{type: "submit", class: "submit-btn"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
