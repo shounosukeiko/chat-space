@@ -1,1 +1,0 @@
-# config.assets.js_compressor = :uglifier
